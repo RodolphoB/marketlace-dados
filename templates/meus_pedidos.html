@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meus Pedidos | Market Lace</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-dark { background-color: #1A1A1A; }
+    .text-neon { color: #00FF80; }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-dark text-white min-h-screen">
+
+  <header class="bg-dark border-b border-gray-800 p-5">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="text-2xl font-bold text-neon flex items-center"><span class="mr-2">👟</span>Market Lace</div>
+      <nav class="space-x-6">
+        <a href="{{ url_for('minha_conta') }}" class="hover:text-neon">Minha Conta</a>
+        <a href="{{ url_for('meus_pedidos') }}" class="text-neon border-b-2 border-neon px-2">Meus Pedidos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto py-12 px-6">
+    <h1 class="text-3xl text-neon font-bold mb-6">Meus Pedidos</h1>
+
+    <!-- Filtros rápidos -->
+    <div class="flex flex-wrap gap-3 mb-8">
+      <button class="px-4 py-2 rounded-lg bg-[#121212] border border-gray-800">Todos</button>
+      <button class="px-4 py-2 rounded-lg bg-[#121212] border border-gray-800">Compras</button>
+      <button class="px-4 py-2 rounded-lg bg-[#121212] border border-gray-800">Trocas</button>
+      <button class="px-4 py-2 rounded-lg bg-[#121212] border border-gray-800">Aluguel</button>
+    </div>
+
+    <div class="space-y-6">
+
+      {% if pedidos|length == 0 %}
+          <p class="text-gray-400">Você ainda não possui pedidos.</p>
+      {% endif %}
+
+    {% for p in pedidos %}
+    <div class="bg-[#121212] border border-gray-800 rounded-xl p-6 flex flex-col md:flex-row md:items-center md:justify-between">
+
+        <div class="flex items-center space-x-4">
+            <img src="{{ p[2] }}" class="w-28 h-28 object-cover rounded-lg">
+
+            <div>
+                <h3 class="text-white font-semibold">{{ p[1] }}</h3>
+                <p class="text-gray-400 text-sm">
+                    Pedido #{{ p[0] }} • {{ p[5] }}
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-4 md:mt-0 text-right">
+            <p class="text-gray-300 mb-2">
+                Tipo: <span class="text-neon">{{ p[3] }}</span>
+            </p>
+            <p class="text-gray-300 mb-2">
+                Status: <span class="text-neon">{{ p[4] }}</span>
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-3 justify-end">
+
+                <a href="{{ url_for('editar_pedido', id=p[0]) }}"
+                  class="px-4 py-2 bg-neon text-black rounded-lg font-semibold hover:bg-opacity-80 transition">
+                    Editar
+                </a>
+
+                <a href="#" class="px-4 py-2 bg-[#1f1f1f] text-white border border-gray-700 rounded-lg hover:border-neon transition">
+                    Detalhes
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+    {% endfor %}
+
+
+    </div>
+
+  </main>
+
+</body>
+</html>
+

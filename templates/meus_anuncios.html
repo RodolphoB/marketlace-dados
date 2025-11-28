@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meus Anúncios | Market Lace</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .bg-dark { background-color: #1A1A1A; }
+    .text-neon { color: #00FF80; }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-dark text-white min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-dark border-b border-gray-800 p-5">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="text-2xl font-bold text-neon flex items-center">
+        <span class="mr-2">👟</span>Market Lace
+      </div>
+      <nav class="space-x-6">
+        <a href="{{ url_for('minha_conta') }}" class="hover:text-neon">Minha Conta</a>
+        <a href="{{ url_for('meus_anuncios') }}" class="text-neon border-b-2 border-neon px-2">Meus Anúncios</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo -->
+  <main class="max-w-6xl mx-auto py-12 px-6">
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-3xl text-neon font-bold">Meus Anúncios</h1>
+      <a href="{{ url_for('criar_anuncio') }}" class="bg-neon text-black px-4 py-2 rounded-lg font-semibold">
+        Criar anúncio
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      {% if produtos|length == 0 %}
+        <p class="text-gray-400">Você ainda não possui anúncios.</p>
+      {% endif %}
+
+      {% for produto in produtos %}
+      <div class="bg-[#121212] border border-gray-800 rounded-xl p-4 flex gap-4">
+        <img src="{{ produto[7] }}" alt="anuncio" class="w-28 h-28 rounded-lg object-cover">
+        <div class="flex-1">
+          <h3 class="text-white font-semibold">{{ produto[2] }}</h3>
+          <p class="text-gray-400 text-sm">{{ produto[4] }} • {{ produto[5] }}</p>
+          <p class="text-neon font-semibold mt-2">R$ {{ produto[6] }}</p>
+
+          <div class="mt-3 flex gap-2">
+            <a href="{{ url_for('editar_produto', produto_id=produto[0]) }}" class="px-3 py-2 rounded-lg bg-[#2a2a2a] border border-gray-700">Editar</a>
+            <a href="{{ url_for('detalhes', produto_id=produto[0]) }}" class="px-3 py-2 rounded-lg bg-[#2a2a2a] border border-gray-700">Ver</a>
+            <form action="{{ url_for('remover_produto', produto_id=produto[0]) }}" method="POST">
+                <button type="submit" class="px-3 py-2 rounded-lg bg-red-600 text-black">
+                    Remover
+                </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </main>
+</body>
+</html>
+
+

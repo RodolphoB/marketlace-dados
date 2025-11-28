@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editar Perfil | Market Lace</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .bg-dark { background-color: #1A1A1A; }
+    .text-neon { color: #00FF80; }
+    .bg-neon { background-color: #00FF80; }
+    .border-neon { border-color: #00FF80; }
+  </style>
+</head>
+
+<body class="bg-dark text-white min-h-screen">
+
+  <!-- HEADER -->
+  <header class="bg-dark border-b border-gray-800 p-5 sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="text-2xl font-bold text-neon flex items-center">
+        <span class="mr-2">👟</span>Market Lace
+      </div>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="{{ url_for('home') }}" class="hover:text-neon transition">Início</a>
+        <a href="{{ url_for('trocar') }}" class="hover:text-neon transition">Trocar</a>
+        <a href="{{ url_for('revender') }}" class="hover:text-neon transition">Revender</a>
+        <a href="{{ url_for('alugar') }}" class="hover:text-neon transition">Alugar</a>
+        <a href="{{ url_for('minha_conta') }}" class="text-neon border-b-2 border-neon px-2">Minha Conta</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FORMULÁRIO -->
+  <main class="max-w-xl mx-auto py-12 px-6">
+
+    <h1 class="text-2xl font-bold text-neon mb-6">Editar Perfil</h1>
+
+    <form action="{{ url_for('editar_perfil') }}" method="POST" class="space-y-6">
+
+      <div>
+        <label class="block mb-1 text-gray-300">Nome</label>
+        <input type="text" name="nome" value="{{ usuarios[0] }}" 
+               class="w-full p-3 rounded-lg bg-[#121212] border border-gray-700 focus:border-neon outline-none text-white">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-gray-300">Email</label>
+        <input type="email" name="email" value="{{ usuarios[1] }}" 
+               class="w-full p-3 rounded-lg bg-[#121212] border border-gray-700 focus:border-neon outline-none text-white">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-gray-300">Telefone</label>
+        <input type="text" name="telefone" value="{{ usuarios[2] }}" 
+               class="w-full p-3 rounded-lg bg-[#121212] border border-gray-700 focus:border-neon outline-none text-white">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-gray-300">Cidade</label>
+        <input type="text" name="cidade" value="{{ usuarios[3] }}" 
+               class="w-full p-3 rounded-lg bg-[#121212] border border-gray-700 focus:border-neon outline-none text-white">
+      </div>
+
+      <button type="submit" class="w-full bg-neon text-black p-3 rounded-lg font-semibold hover:opacity-90 transition">
+        Salvar alterações
+      </button>
+
+      <a href="{{ url_for('perfil') }}" 
+         class="block text-center text-gray-400 hover:text-neon mt-3">Cancelar</a>
+
+    </form>
+  </main>
+
+</body>
+</html>

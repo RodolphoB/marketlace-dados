@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carteira | Market Lace</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .bg-dark { background-color: #1A1A1A; }
+    .text-neon { color: #00FF80; }
+    .bg-neon { background-color: #00FF80; }
+    .border-neon { border-color: #00FF80; }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-dark text-white min-h-screen">
+
+  <!-- HEADER -->
+  <header class="bg-dark border-b border-gray-800 p-5">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="text-2xl font-bold text-neon flex items-center">
+        <span class="mr-2">👟</span>Market Lace
+      </div>
+
+      <nav class="space-x-6 text-lg font-medium hidden md:flex">
+        <a href="/minha-conta" class="hover:text-neon transition">Minha Conta</a>
+        <a href="/carteira" class="text-neon border-b-2 border-neon px-2">Carteira</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="max-w-5xl mx-auto py-12 px-6">
+
+    <h1 class="text-3xl text-neon font-bold mb-6">Carteira</h1>
+
+    <!-- CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- SALDO DISPONÍVEL -->
+      <div class="bg-[#121212] border border-gray-800 rounded-xl p-6">
+        <h2 class="text-gray-300">Saldo disponível</h2>
+        <p class="text-2xl font-bold text-white mt-2">R$ 1.250,00</p>
+        <p class="text-gray-400 text-sm mt-2">Livre para saque ou movimentação</p>
+
+        <div class="mt-4">
+          <a href="#" class="px-4 py-2 bg-neon text-black rounded-lg font-semibold hover:opacity-90 transition">
+            Sacar
+          </a>
+        </div>
+      </div>
+
+      <!-- SALDO EM PROCESSO -->
+      <div class="bg-[#121212] border border-gray-800 rounded-xl p-6">
+        <h2 class="text-gray-300">Saldo em processo</h2>
+        <p class="text-2xl font-bold text-white mt-2">R$ 320,00</p>
+        <p class="text-gray-400 text-sm mt-2">Vendas recentes / aguardando confirmação</p>
+      </div>
+
+      <!-- GANHOS TOTAIS -->
+      <div class="bg-[#121212] border border-gray-800 rounded-xl p-6">
+        <h2 class="text-gray-300">Ganhos totais</h2>
+        <p class="text-2xl font-bold text-white mt-2">R$ 4.720,00</p>
+        <p class="text-gray-400 text-sm mt-2">Desde que você começou</p>
+      </div>
+
+    </div>
+
+    <!-- HISTÓRICO -->
+    <div class="mt-10 bg-[#121212] border border-gray-800 rounded-xl p-6">
+      <h3 class="text-neon font-semibold mb-4">Histórico de transações</h3>
+
+      <div class="space-y-5">
+
+        <!-- ITEM 1 -->
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-white font-medium">Venda - Nike Air Did</p>
+            <p class="text-gray-400 text-sm">14/11/2025 • Pedido ML-89231</p>
+          </div>
+          <p class="text-gray-300 font-medium">+ R$ 450,00</p>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-white font-medium">Taxa de serviço</p>
+            <p class="text-gray-400 text-sm">10/11/2025</p>
+          </div>
+          <p class="text-gray-300 font-medium">- R$ 45,00</p>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
+

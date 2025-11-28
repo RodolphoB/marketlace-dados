@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto | Market Lace</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-dark { background-color: #1A1A1A; }
+        .text-neon { color: #00FF80; }
+        .border-neon { border-color: #00FF80; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-dark text-white min-h-screen">
+
+    <!-- HEADER -->
+    <header class="bg-dark border-b border-gray-800 p-5 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-neon flex items-center">
+                <span class="mr-2">👟</span>Market Lace
+            </div>
+
+            <nav class="space-x-8 text-lg font-medium">
+                <a href="{{ url_for('home') }}" class="hover:text-neon transition">Início</a>
+                <a href="{{ url_for('trocar') }}" class="hover:text-neon transition">Trocar</a>
+                <a href="{{ url_for('revender') }}" class="hover:text-neon transition">Revender</a>
+                <a href="{{ url_for('alugar') }}" class="hover:text-neon transition">Alugar</a>
+                <a href="{{ url_for('login') }}" class="hover:text-neon transition border-l border-gray-700 pl-8">Login/Cadastro</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-7xl mx-auto py-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <!-- GALERIA -->
+            <div class="flex space-x-6">
+
+                <!-- Miniaturas -->
+                <div class="space-y-4 w-1/5">
+                    <div class="h-20 bg-gray-700 rounded-lg border-2 border-neon cursor-pointer"></div>
+                    <div class="h-20 bg-gray-700 rounded-lg opacity-70 cursor-pointer"></div>
+                    <div class="h-20 bg-gray-700 rounded-lg opacity-70 cursor-pointer"></div>
+                    <div class="h-20 bg-gray-700 rounded-lg opacity-70 cursor-pointer"></div>
+                    <div class="h-20 bg-gray-700 rounded-lg opacity-70 cursor-pointer"></div>
+                </div>
+
+                <!-- Imagem principal -->
+                <div class="w-4/5">
+                    <div class="aspect-square bg-gray-700 rounded-lg flex items-center justify-center"></div>
+                </div>
+
+            </div>
+
+            <!-- DETALHES DO PRODUTO -->
+            <div class="space-y-6 p-4">
+
+                <p class="text-sm text-gray-400">Marca: Nike Air Did</p>
+                <h1 class="text-4xl font-bold">Did High OG "Moscta"</h1>
+
+                <div class="flex space-x-6 text-xl font-medium">
+                    <p>Tamanho: <span class="text-neon">US 10 / BR 42</span></p>
+                    <p>
+                        Condição:
+                        <span class="text-white bg-green-700 px-2 py-1 rounded text-sm">
+                            Deadstock (Novo)
+                        </span>
+                    </p>
+                </div>
+
+                <!-- Aba de ações -->
+                <div class="mt-8">
+                    <div class="flex border-b border-gray-700 mb-4">
+                        <button class="px-6 py-3 border-b-2 border-neon text-neon font-semibold">
+                            Revender/Comprar
+                        </button>
+                        <button class="px-6 py-3 text-gray-500 font-semibold hover:text-white transition">
+                            Trocar
+                        </button>
+                        <button class="px-6 py-3 text-gray-500 font-semibold hover:text-white transition">
+                            Alugar (Beta)
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <p class="text-xl text-gray-400">Preço de Venda Sugerido:</p>
+                        <p class="text-5xl font-extrabold text-white">R$ 3.500,00</p>
+
+                        <form action="{{ url_for('novo_pedido') }}" method="POST">
+                            <input type="hidden" name="produto_id" value="{{ produto.id }}">
+                            <input type="hidden" name="tipo" value="compra">
+                            <button class="w-full bg-neon text-black font-bold py-4 rounded-lg text-xl hover:bg-opacity-80 transition shadow-lg">
+                                Comprar Agora
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+                <!-- Badge verificações -->
+                <div class="mt-10 border-t border-gray-800 pt-6 space-y-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-4xl text-neon">🛡️</span>
+                        <div>
+                            <h3 class="text-xl font-bold">Authenticated by Market Lace</h3>
+                            <p class="text-gray-400 text-sm">Saiba mais sobre nosso processo de verificação.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

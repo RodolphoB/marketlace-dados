@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Lace - Seu Marketplace Premium de Sneakers</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .bg-dark { background-color: #1A1A1A; }
+        .text-neon { color: #00FF80; }
+        .bg-neon { background-color: #00FF80; }
+        .border-neon { border-color: #00FF80; }
+        .text-dark { color: #1A1A1A; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white min-h-screen">
+
+    <!-- HEADER -->
+    <header class="bg-dark border-b border-gray-800 p-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+            <div class="text-2xl font-bold text-neon flex items-center">
+                <span class="mr-2">👟</span>Market Lace
+            </div>
+
+            <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="/" class="text-neon border-b-2 border-neon">Início</a>
+                <a href="/trocar" class="hover:text-neon transition">Trocar</a>
+                <a href="/revender" class="hover:text-neon transition">Revender</a>
+                <a href="/alugar" class="hover:text-neon transition">Alugar</a>
+                <a href="/login" class="hover:text-neon transition border-l border-gray-700 pl-8">Login/Cadastro</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto pt-16 pb-24 px-4">
+
+        <!-- HERO SECTION -->
+        <section class="flex flex-col lg:flex-row items-center justify-between">
+
+            <!-- TEXTO -->
+            <div class="lg:w-1/2">
+
+                <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
+                    Seu próximo <span class="text-neon">'Deadstock'</span> está aqui.
+                </h1>
+
+                <p class="text-xl text-gray-400 mb-8">
+                    O marketplace premium de <strong>troca, revenda e aluguel</strong> de sneakers autênticos.
+                </p>
+
+                <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+                    <a href="/feed"
+                       class="bg-neon text-dark font-bold py-3 px-8 rounded-lg text-lg
+                              hover:bg-opacity-80 transition duration-300 text-center">
+                        Explorar Lançamentos
+                    </a>
+
+                    <a href="/trocar"
+                       class="border-2 border-white text-white font-bold py-3 px-8 rounded-lg text-lg
+                              hover:border-neon hover:text-neon transition duration-300 text-center">
+                        Ver Opções de Troca
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- IMAGEM -->
+            <div class="lg:w-1/2 flex justify-center mt-12 lg:mt-0">
+
+                <!-- Substituir o src pela imagem definitiva -->
+                <img src="/static/OIG1.FACP.jpg"
+                     class="rounded-2xl shadow-2xl w-full max-w-lg object-cover">
+
+            </div>
+
+        </section>
+
+        <!-- WHY SECTION -->
+        <section class="mt-24 border-t border-gray-800 pt-16">
+
+            <h2 class="text-3xl font-bold text-center mb-12">Por que Market Lace?</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+
+                <div class="border border-gray-700 p-8 rounded-xl
+                            hover:border-neon transition duration-300">
+                    <span class="text-4xl text-neon mb-4 inline-block">🔒</span>
+                    <h3 class="text-xl font-semibold mb-2">Autenticidade Garantida</h3>
+                    <p class="text-gray-400">Processo rígido de verificação para todos os pares.</p>
+                </div>
+
+                <div class="border border-gray-700 p-8 rounded-xl
+                            hover:border-neon transition duration-300">
+                    <span class="text-4xl text-neon mb-4 inline-block">🔄</span>
+                    <h3 class="text-xl font-semibold mb-2">Opções Flexíveis</h3>
+                    <p class="text-gray-400">Troque, revenda ou alugue com total segurança.</p>
+                </div>
+
+                <div class="border border-gray-700 p-8 rounded-xl
+                            hover:border-neon transition duration-300">
+                    <span class="text-4xl text-neon mb-4 inline-block">👥</span>
+                    <h3 class="text-xl font-semibold mb-2">Comunidade Premium</h3>
+                    <p class="text-gray-400">Conecte-se com sneakerheads e colecionadores.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+                <!-- SOBRE O PROJETO -->
+        <section class="mt-24 border-t border-gray-800 pt-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Sobre o Projeto</h2>
+
+            <div class="flex flex-col lg:flex-row items-center gap-10 max-w-6xl mx-auto">
+
+                <!-- Texto -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <p class="text-gray-400 mb-4">
+                        O <strong>Market Lace</strong> foi desenvolvido com foco na cultura sneakerhead,
+                        valorizando a economia que gira em torno dos tênis raros e colecionáveis.
+                    </p>
+                    <p class="text-gray-400 mb-4">
+                        O projeto explora o potencial de valor do mercado de sneakers, oferecendo
+                        opções de <strong>revenda, troca e aluguel</strong> de forma segura e confiável.
+                    </p>
+                    <p class="text-gray-400 mb-4">
+                        Desenvolvido por <strong>Rodolpho Lacerda</strong>, do sexto do segundo semestre de 2025 do curso de
+                        Análise e Desenvolvimento de Sistemas para a disciplina de Tópicos de Informática.
+                    </p>
+                </div>
+
+                <!-- Imagem -->
+                <div class="lg:w-1/2 flex justify-center">
+                    <img src="https://fastcompanybrasil.com/wp-content/uploads/2023/07/Sneaker_Con_Los-Angeles.jpg"
+                        alt="Cultura Sneakerhead"
+                        class="rounded-2xl shadow-2xl w-full max-w-md object-cover">
+                </div>
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="bg-gray-900 text-center py-4 text-gray-500 text-sm">
+        &copy; 2025 Market Lace. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>
+

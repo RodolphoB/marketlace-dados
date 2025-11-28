@@ -1,0 +1,23 @@
+<h1 class="text-2xl font-bold text-white">Meus Produtos</h1>
+
+<a href="/produto/novo" class="bg-neon px-4 py-2 rounded">Adicionar Produto</a>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+    {% for p in produtos %}
+        <div class="bg-dark p-4 rounded-lg">
+            <img src="{{ p[7] }}" class="w-full h-40 object-cover rounded">
+            <h2 class="text-xl text-white mt-2">{{ p[2] }}</h2>
+
+            <p class="text-gray-300">{{ p[3] }}</p>
+            <p class="text-neon">R$ {{ p[6] }}</p>
+
+            <div class="mt-3 flex gap-2">
+                <a href="/produto/editar/{{ p[0] }}" class="bg-blue-600 px-3 py-1 rounded text-white">Editar</a>
+
+                <form action="/produto/deletar/{{ p[0] }}" method="POST">
+                    <button class="bg-red-600 px-3 py-1 rounded text-white">Excluir</button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+</div>

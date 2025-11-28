@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Configurações | Market Lace</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .bg-dark { background-color: #1A1A1A; }
+        .text-neon { color: #00FF80; }
+        body { font-family: "Inter", sans-serif; }
+    </style>
+</head>
+
+<body class="bg-dark text-white min-h-screen">
+
+    <!-- HEADER -->
+    <header class="bg-dark border-b border-gray-800 p-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-neon flex items-center">
+                <span class="mr-2">👟</span> Market Lace
+            </div>
+
+            <nav class="space-x-6">
+                <a href="{{ url_for('minha_conta') }}" class="hover:text-neon">Minha Conta</a>
+                <a href="{{ url_for('configuracoes') }}" class="text-neon border-b-2 border-neon px-2">
+                    Configurações
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-4xl mx-auto py-12 px-6">
+
+        <h1 class="text-3xl text-neon font-bold mb-6">Configurações</h1>
+
+        <div class="bg-[#121212] border border-gray-800 rounded-xl p-6 space-y-8">
+
+            <!-- Preferências -->
+            <div>
+                <h3 class="text-white font-semibold mb-3">Preferências</h3>
+
+                <label class="flex items-center gap-3">
+                    <input type="checkbox" checked class="w-4 h-4 bg-gray-700 rounded">
+                    <span class="text-gray-300">Receber e-mails sobre promoções</span>
+                </label>
+            </div>
+
+            <!-- Privacidade -->
+            <div>
+                <h3 class="text-white font-semibold mb-3">Privacidade</h3>
+
+                <label class="flex items-center gap-3">
+                    <input type="checkbox" class="w-4 h-4 bg-gray-700 rounded">
+                    <span class="text-gray-300">Mostrar meu perfil publicamente</span>
+                </label>
+            </div>
+
+            <!-- Segurança -->
+            <div>
+                <h3 class="text-white font-semibold mb-3">Segurança</h3>
+
+                <p class="text-gray-300 mb-2">Autenticação em dois fatores</p>
+                <a href="#" class="bg-neon text-black px-4 py-2 rounded-lg">
+                    Ativar 2FA
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

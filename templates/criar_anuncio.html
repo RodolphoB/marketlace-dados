@@ -1,0 +1,22 @@
+<h1 class="text-2xl text-white">Novo Produto</h1>
+
+<form action="/produto/novo" method="POST" class="flex flex-col gap-4 mt-4">
+
+    <input name="nome" placeholder="Nome" class="p-2 rounded bg-dark text-white">
+
+    <textarea name="descricao" placeholder="Descrição" class="p-2 rounded bg-dark text-white"></textarea>
+
+    <input name="categoria" placeholder="Categoria" class="p-2 rounded bg-dark text-white">
+
+    <select name="tipo" class="p-2 rounded bg-dark text-white">
+        <option value="revenda">Revenda</option>
+        <option value="aluguel">Aluguel</option>
+        <option value="troca">Troca</option>
+    </select>
+
+    <input name="preco" placeholder="Preço" class="p-2 rounded bg-dark text-white">
+
+    <input name="imagem" placeholder="URL da imagem" class="p-2 rounded bg-dark text-white">
+
+    <button class="bg-neon text-black px-4 py-2 rounded">Salvar</button>
+</form>

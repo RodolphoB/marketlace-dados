@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Explorar | Market Lace</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .bg-dark { background-color: #1A1A1A; }
+    .text-neon { color: #00FF80; }
+    .bg-neon { background-color: #00FF80; }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-dark text-white min-h-screen">
+
+  <!-- HEADER -->
+  <header class="bg-dark border-b border-gray-800 p-5 sticky top-0 z-20">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+      <div class="text-2xl font-bold text-neon flex items-center">
+        <span class="mr-2">👟</span>Market Lace
+      </div>
+
+      <nav class="space-x-6 text-lg font-medium">
+        <a href="/" class="hover:text-neon transition">Início</a>
+        <a href="/feed" class="text-neon border-b-2 border-neon px-2">Explorar</a>
+        <a href="{{ url_for('minha_conta') }}" class="text-neon border-b border-neon">Minha Conta</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-7xl mx-auto py-12 px-6">
+
+    <div class="flex flex-col lg:flex-row gap-8">
+
+      <!-- FILTROS -->
+      <aside class="w-full lg:w-72">
+        <div class="bg-[#121212] border border-gray-800 rounded-xl p-6 sticky top-24">
+
+          <h2 class="text-neon font-semibold mb-4">Filtros</h2>
+
+          <label class="block text-gray-300 mb-2">Buscar</label>
+          <input id="search" type="text" placeholder="Pesquisar modelo, marca..."
+            class="w-full p-3 rounded-lg bg-dark border border-gray-700 mb-4">
+
+          <label class="block text-gray-300 mb-2">Categoria</label>
+          <select id="categoria"
+            class="w-full p-3 rounded-lg bg-dark border border-gray-700 mb-4">
+            <option value="">Todas</option>
+            <option value="revenda">Revenda</option>
+            <option value="aluguel">Aluguel</option>
+            <option value="troca">Troca</option>
+          </select>
+
+          <label class="block text-gray-300 mb-2">Marca</label>
+          <select id="marca"
+            class="w-full p-3 rounded-lg bg-dark border border-gray-700 mb-4">
+            <option value="">Todas</option>
+            <option value="nike">Nike</option>
+            <option value="adidas">Adidas</option>
+            <option value="jordan">Jordan</option>
+          </select>
+
+          <label class="block text-gray-300 mb-2">Tamanho</label>
+          <div class="grid grid-cols-4 gap-2 mb-4">
+            <button class="size-btn p-2 bg-[#1d1d1d] rounded">38</button>
+            <button class="size-btn p-2 bg-[#1d1d1d] rounded">40</button>
+            <button class="size-btn p-2 bg-[#1d1d1d] rounded">42</button>
+            <button class="size-btn p-2 bg-[#1d1d1d] rounded">44</button>
+          </div>
+
+          <label class="block text-gray-300 mb-2">Preço</label>
+          <div class="flex gap-2">
+            <input id="min-price" type="number" placeholder="min"
+              class="w-1/2 p-2 rounded bg-dark border border-gray-700">
+            <input id="max-price" type="number" placeholder="max"
+              class="w-1/2 p-2 rounded bg-dark border border-gray-700">
+          </div>
+
+          <button id="reset"
+            class="mt-4 w-full bg-[#2a2a2a] border border-gray-700 p-3 rounded-lg">
+            Resetar filtros
+          </button>
+
+        </div>
+      </aside>
+
+      <!-- FEED -->
+      <section class="flex-1">
+
+        <div class="flex items-center justify-between mb-6">
+          <h1 class="text-neon text-3xl font-bold">Explorar</h1>
+          <div class="text-gray-400">Resultados: <span id="count">—</span></div>
+        </div>
+
+        <div id="grid"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- CARD 1 -->
+          <article
+            class="card bg-[#121212] border border-gray-800 rounded-xl overflow-hidden">
+            <img src="/static/OIG1.FACP.jpg"
+              class="w-full h-48 object-cover">
+            <div class="p-4">
+
+              <div class="flex items-center justify-between">
+                <h3 class="text-white font-semibold">Nike Air Did High OG</h3>
+                <span class="text-sm px-2 py-1 bg-[#162e21] text-neon rounded">
+                  Revenda
+                </span>
+              </div>
+
+              <p class="text-gray-400 text-sm mt-2">Tamanho: 42 • Estado: Bom</p>
+
+              <div class="mt-4 flex items-center justify-between">
+
+                <div>
+                  <p class="text-neon font-semibold">R$ 450,00</p>
+                  <p class="text-gray-400 text-xs">Enviado por: alex</p>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <a href="/detalhes"
+                    class="px-3 py-2 bg-neon text-black rounded-lg text-sm">Ver</a>
+                  <a href="#"
+                    class="px-3 py-2 bg-[#2a2a2a] rounded-lg text-sm">Mensagem</a>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article
+            class="card bg-[#121212] border border-gray-800 rounded-xl overflow-hidden">
+            <img src="/static/OIG1.FACP.jpg"
+              class="w-full h-48 object-cover">
+            <div class="p-4">
+
+              <div class="flex items-center justify-between">
+                <h3 class="text-white font-semibold">Adidas Retro Runner</h3>
+                <span class="text-sm px-2 py-1 bg-[#163042] text-neon rounded">
+                  Aluguel
+                </span>
+              </div>
+
+              <p class="text-gray-400 text-sm mt-2">Tamanho: 40 • Novo</p>
+
+              <div class="mt-4 flex items-center justify-between">
+
+                <div>
+                  <p class="text-neon font-semibold">R$ 40/dia</p>
+                  <p class="text-gray-400 text-xs">Disponível: 20/12 - 25/12</p>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <a href="/detalhes"
+                    class="px-3 py-2 bg-neon text-black rounded-lg text-sm">Ver</a>
+                  <a href="#"
+                    class="px-3 py-2 bg-[#2a2a2a] rounded-lg text-sm">Reservar</a>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article
+            class="card bg-[#121212] border border-gray-800 rounded-xl overflow-hidden">
+            <img src="/static/OIG1.FACP.jpg"
+              class="w-full h-48 object-cover">
+            <div class="p-4">
+
+              <div class="flex items-center justify-between">
+                <h3 class="text-white font-semibold">Jordan Classic</h3>
+                <span class="text-sm px-2 py-1 bg-[#3a1f21] text-neon rounded">
+                  Troca
+                </span>
+              </div>
+
+              <p class="text-gray-400 text-sm mt-2">Tamanho: 44 • Muito Bom</p>
+
+              <div class="mt-4 flex items-center justify-between">
+
+                <div>
+                  <p class="text-neon font-semibold">Valor estimado R$ 650,00</p>
+                  <p class="text-gray-400 text-xs">Ofertas de troca disponíveis</p>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <a href="/detalhes"
+                    class="px-3 py-2 bg-neon text-black rounded-lg text-sm">Ver</a>
+                  <a href="#"
+                    class="px-3 py-2 bg-[#2a2a2a] rounded-lg text-sm">Ofertar</a>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- SCRIPT FILTROS -->
+  <script>
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const countEl = document.getElementById('count');
+    const search = document.getElementById('search');
+    const categoria = document.getElementById('categoria');
+    const marca = document.getElementById('marca');
+    const minPrice = document.getElementById('min-price');
+    const maxPrice = document.getElementById('max-price');
+    const reset = document.getElementById('reset');
+
+    function updateCount() {
+      const visible = cards.filter(c => c.style.display !== 'none').length;
+      countEl.textContent = visible;
+    }
+
+    function filterCards() {
+      const q = (search.value || '').toLowerCase();
+      const cat = categoria.value;
+      const m = marca.value;
+      const min = parseFloat(minPrice.value) || 0;
+      const max = parseFloat(maxPrice.value) || Infinity;
+
+      cards.forEach(card => {
+        const text = (card.innerText || '').toLowerCase();
+        const priceMatch = (card.innerText.match(/r\$ ?([\d.,]+)/i) || [null, '0'])[1]
+                            .replace('.', '').replace(',', '.');
+        const price = parseFloat(priceMatch) || 0;
+
+        let visible = true;
+        if (q && !text.includes(q)) visible = false;
+        if (cat && !text.includes(cat)) visible = false;
+        if (m && !text.includes(m)) visible = false;
+        if (!(price >= min && price <= max)) visible = false;
+
+        card.style.display = visible ? '' : 'none';
+      });
+
+      updateCount();
+    }
+
+    [search, categoria, marca, minPrice, maxPrice]
+      .forEach(el => el.addEventListener('input', filterCards));
+
+    reset.addEventListener('click', () => {
+      search.value = '';
+      categoria.value = '';
+      marca.value = '';
+      minPrice.value = '';
+      maxPrice.value = '';
+      filterCards();
+    });
+
+    filterCards();
+  </script>
+
+</body>
+</html>
+

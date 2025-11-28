@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta | Market Lace</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .bg-dark { background-color: #1A1A1A; }
+        .text-neon { color: #00FF80; }
+        .border-neon { border-color: #00FF80; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+
+<body class="bg-dark text-white min-h-screen">
+
+    <!-- HEADER -->
+    <header class="bg-dark border-b border-gray-800 p-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-neon text-2xl font-bold">👟 Market Lace</h1>
+            <nav class="space-x-8">
+                <a href="{{ url_for('home') }}" class="hover:text-neon">Início</a>
+                <a href="{{ url_for('trocar') }}" class="hover:text-neon">Trocar</a>
+                <a href="{{ url_for('revender') }}" class="hover:text-neon">Revender</a>
+                <a href="{{ url_for('alugar') }}" class="hover:text-neon">Alugar</a>
+                <a href="{{ url_for('minha_conta') }}" class="text-neon border-b border-neon">Minha Conta</a>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- DASHBOARD -->
+    <main class="max-w-6xl mx-auto py-16 px-6">
+        
+        <h1 class="text-4xl font-bold text-neon mb-12">Minha Conta</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+            <!-- Card Perfil -->
+            <div class="bg-[#121212] border border-gray-800 rounded-xl p-8 shadow-xl">
+                <h2 class="text-xl text-neon font-semibold mb-2">👤 Perfil</h2>
+                <p class="text-gray-300 mb-4">Gerencie suas informações pessoais e segurança.</p>
+                <a href="{{ url_for('perfil') }}" class="text-neon underline">Editar perfil</a>
+            </div>
+
+            <!-- Card Meus Pedidos -->
+            <div class="bg-[#121212] border border-gray-800 rounded-xl p-8 shadow-xl">
+                <h2 class="text-xl text-neon font-semibold mb-2">📦 Meus Pedidos</h2>
+                <p class="text-gray-300 mb-4">Acompanhe compras, revendas e trocas.</p>
+                <a href="{{ url_for('meus_pedidos') }}" class="text-neon underline">Ver pedidos</a>
+            </div>
+
+            <!-- Card Carteira -->
+            <div class="bg-[#121212] border border-gray-800 rounded-xl p-8 shadow-xl">
+                <h2 class="text-xl text-neon font-semibold mb-2">💳 Carteira</h2>
+                <p class="text-gray-300 mb-4">Gerencie saldo, retiradas e ganhos.</p>
+                <a href="{{ url_for('carteira') }}" class="text-neon underline">Acessar carteira</a>
+            </div>
+
+            <!-- Card Anúncios -->
+            <div class="bg-[#121212] border border-gray-800 rounded-xl p-8 shadow-xl">
+                <h2 class="text-xl text-neon font-semibold mb-2">📢 Meus Anúncios</h2>
+                <p class="text-gray-300 mb-4">Gerencie itens à venda, aluguel ou troca.</p>
+                <a href="{{ url_for('meus_anuncios') }}" class="text-neon underline">Gerenciar anúncios</a>
+            </div>
+
+            <!-- Card Config -->
+            <div class="bg-[#121212] border border-gray-800 rounded-xl p-8 shadow-xl">
+                <h2 class="text-xl text-neon font-semibold mb-2">⚙️ Configurações</h2>
+                <p class="text-gray-300 mb-4">Notificações, login, privacidade.</p>
+                <a href="{{ url_for('configuracoes') }}" class="text-neon underline">Abrir configurações</a>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

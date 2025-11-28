@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Market Lace</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .bg-dark { background-color: #1A1A1A; }
+        .text-neon { color: #00FF80; }
+        .border-neon { border-color: #00FF80; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+
+<body class="bg-dark text-white min-h-screen flex items-center justify-center">
+
+    <div class="bg-[#121212] border border-gray-800 p-10 rounded-xl shadow-xl max-w-md w-full">
+
+        <h1 class="text-3xl font-bold text-neon mb-6 text-center">Entrar na Market Lace</h1>
+
+        <form method="POST" action="/login" class="space-y-6">
+
+            <!-- Email -->
+            <div>
+                <label class="block mb-2 text-gray-300">Email</label>
+                <input 
+                    type="email"
+                    name="email"
+                    required
+                    class="w-full p-3 rounded-lg bg-dark border border-gray-700 text-white 
+                           focus:border-neon outline-none">
+            </div>
+
+            <!-- Senha -->
+            <div>
+                <label class="block mb-2 text-gray-300">Senha</label>
+                <input 
+                    type="password"
+                    name="senha"
+                    required
+                    class="w-full p-3 rounded-lg bg-dark border border-gray-700 text-white 
+                           focus:border-neon outline-none">
+            </div>
+
+            <button 
+                class="w-full py-3 bg-neon text-black font-semibold rounded-lg 
+                       hover:opacity-80 transition">
+                Entrar
+            </button>
+
+            <p class="text-center text-gray-400">
+                Ainda não tem conta?
+                <a href="/cadastro" class="text-neon hover:underline">Criar conta</a>
+            </p>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
+
