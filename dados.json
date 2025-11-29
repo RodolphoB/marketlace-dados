@@ -1,0 +1,15 @@
+{
+    "produtos": [
+        {
+            "id": 4,
+            "usuario_id": 2,
+            "nome": "Puma ",
+            "descricao": "Suede",
+            "categoria": "Puma-Suede",
+            "tipo": "revenda",
+            "preco": 350.0,
+            "imagem": "https://www.driving-ideas.de/images/g/nike%20air%2090%20essential-526jlk.jpg",
+            "data_criacao": "2025-11-28 23:17:56"
+        }
+    ]
+}
